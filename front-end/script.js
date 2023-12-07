@@ -99,7 +99,7 @@ function function1(e) {
     }
 
     // Send the FormData object to the server using a POST request
-    fetch("http://110.76.86.172:8000/upload-images", {
+    fetch("http://127.0.0.1:8000/upload-images", {
       method: "POST",
       body: formData,
     })
@@ -150,7 +150,7 @@ function function2(e) {
   formData.append("zipFile", zipFile);
 
   // Send the FormData object to the server using a POST request
-  fetch("http://110.76.86.172:8000/upload-model", {
+  fetch("http://127.0.0.1:8000/upload-model", {
     method: "POST",
     body: formData,
   })
@@ -185,9 +185,9 @@ function function3(e) {
   submitButton1.disabled = true;
   submitButton2.disabled = true;
 
-  fetch("http://110.76.86.172:8000/run-gradcam", {
+  fetch("http://127.0.0.1:8000/run-gradcam", {
     //////////////////////////// test
-    // fetch("http://110.76.86.172:8000/test", {
+    // fetch("http://127.0.0.1:8000/test", {
     //////////////////////////// test
     method: "POST",
   })
@@ -201,7 +201,7 @@ function function3(e) {
     .then((data) => {
       console.log("Gra-Visu running...");
       const imagePaths = data.image_paths;
-      const baseUrl = "http://110.76.86.172:8000/heatmap/"; // Base URL for serving images
+      const baseUrl = "http://127.0.0.1:8000/heatmap/"; // Base URL for serving images
 
       // Loop through each imagePath and set it as the background for the corresponding result div
       imagePaths.forEach((path, index) => {
@@ -279,7 +279,7 @@ function move_next(e) {
     }
   }
 
-  fetch("http://110.76.86.172:8000/next-button", {
+  fetch("http://127.0.0.1:8000/next-button", {
     method: "POST",
   })
     .then((response) => {
@@ -291,7 +291,7 @@ function move_next(e) {
     })
     .then((data) => {
       const imagePaths = data.image_paths;
-      const baseUrl = "http://110.76.86.172:8000/heatmap/"; // Base URL for serving images
+      const baseUrl = "http://127.0.0.1:8000/heatmap/"; // Base URL for serving images
 
       // Loop through each imagePath and set it as the background for the corresponding result div
       imagePaths.forEach((path, index) => {
@@ -335,7 +335,7 @@ function move_prev(e) {
     }
   }
 
-  fetch("http://110.76.86.172:8000/prev-button", {
+  fetch("http://127.0.0.1:8000/prev-button", {
     method: "POST",
   })
     .then((response) => {
@@ -347,7 +347,7 @@ function move_prev(e) {
     })
     .then((data) => {
       const imagePaths = data.image_paths;
-      const baseUrl = "http://110.76.86.172:8000/heatmap/"; // Base URL for serving images
+      const baseUrl = "http://127.0.0.1:8000/heatmap/"; // Base URL for serving images
 
       // Loop through each imagePath and set it as the background for the corresponding result div
       imagePaths.forEach((path, index) => {
@@ -376,7 +376,7 @@ function handleInputChange(event) {
   const formData = new FormData();
   formData.append("class_num", number);
 
-  fetch("http://110.76.86.172:8000/class-dropdown", {
+  fetch("http://127.0.0.1:8000/class-dropdown", {
     method: "POST",
     body: formData,
   })
@@ -389,7 +389,7 @@ function handleInputChange(event) {
     })
     .then((data) => {
       const imagePaths = data.image_paths;
-      const baseUrl = "http://110.76.86.172:8000/heatmap/"; // Base URL for serving images
+      const baseUrl = "http://127.0.0.1:8000/heatmap/"; // Base URL for serving images
 
       // Loop through each imagePath and set it as the background for the corresponding result div
       imagePaths.forEach((path, index) => {
